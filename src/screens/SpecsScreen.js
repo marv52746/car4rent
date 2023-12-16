@@ -24,7 +24,7 @@ const SpecsScreen = ({navigation, route}) => {
         
       </View>
 
-      <ScrollView style={{padding: 20, marginBottom: 70, paddingBottom: 100}}>
+      <ScrollView style={{padding: 20, marginBottom: 60, paddingBottom: 100}}>
         <View style={styles.alignCenterRow}>
           <Text style={styles.title}>{route.params?.car.name}</Text>
           <FontAwesome style={{marginRight: 20}} name='heart' color="#005C52" size={30} />
@@ -39,10 +39,7 @@ const SpecsScreen = ({navigation, route}) => {
         <View style={styles.horizontalRule} />
 
         <CarSpecifics />
-        <CarInformation />
-        <CarInformation />
-        <CarInformation />
-        
+
       </ScrollView>
 
       <BookBtn />
@@ -56,7 +53,7 @@ export default SpecsScreen
 const radius = 40
 const styles = StyleSheet.create({
   imageStyle:{
-    height: 320,
+    height: 300,
     borderBottomLeftRadius: radius,
     borderBottomRightRadius: radius,
   },

@@ -1,53 +1,78 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Dimensions } from 'react-native'
 import React from 'react'
 import { FlatList } from 'react-native-gesture-handler'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 
 const data = [
     {
-        key : "Max Power",
-        value : "720 W"
+        key : "Transmission",
+        value : "Automatic"
     },
     {
-        key : "Top Speed",
-        value : "120 km/hr"
+        key : "Seats",
+        value : "4 Seats"
+    },
+    {
+        key : "Air Condition",
+        value : "Climate Control"
     },
     {
         key : "Fuel Type",
-        value : "Gasoline"
+        value : "Petrol"
     },
 ]
 
-const CardSpecifics = ({item})=>{
+const CardSpecifics = ({item, index})=>{
+    const iconName =(item)=>{
+      switch (item.key) {
+        case 'Transmission':
+          return <FontAwesome5 name='car' color={'#7FAEA9'} size={30} />
+        case 'Seats':
+          return <MaterialCommunityIcons name='car-seat' color={'#7FAEA9'} size={30} />
+        case 'Air Condition':
+          return <MaterialCommunityIcons name='fan' color={'#7FAEA9'} size={30} />
+        case 'Fuel Type':
+          return <MaterialCommunityIcons name='fuel' color={'#7FAEA9'} size={30} />
+        default:
+          return <MaterialCommunityIcons name='fan' color={'#7FAEA9'} size={30} />
+      }
+    }
     return(
-        <View style={[styles.specifics, styles.alignCenterVertical]}>
+      <View key={index} style={[styles.specifics, styles.alignCenterRow]}>
+          {iconName(item)}
+          <View style={{marginLeft: 15}}>
             <Text style={styles.specificsText}>{item.key}</Text>
-            <Text style={styles.specificsText}>{item.value}</Text>
-        </View>
+            <Text style={[styles.specificsText, {fontSize:13, color: '#DEFFFF'}]}>{item.value}</Text>
+          </View>
+      </View>
     )
 }
 
 const CarSpecifics = () => {
   return (
-    <View>
+    <View style={{marginBottom: 20}}>
         <Text style={styles.title}>Car Specification</Text>
-        <FlatList
-            data={data}
-            renderItem={({item})=>(
-              <CardSpecifics 
-                item={item}
-              />
-            )}
-            keyExtractor={(item) => item.key}
-            showsHorizontalScrollIndicator={false} // Set this prop to hide the scroll bar
-            horizontal
-        />
+        <View  style={styles.row}>
+          {data.map((item, index)=>{
+            return (
+              <CardSpecifics item={item} index={index}/>
+            )
+          })}
+        </View>
     </View>
   )
 }
 
 export default CarSpecifics
 
+const deviceWidth = Math.round(Dimensions.get('window').width)
 const styles = StyleSheet.create({
+    row: {
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      justifyContent: 'space-between'
+    },
     specificsText:{
         color: '#fff',
         fontSize: 15,
@@ -55,19 +80,16 @@ const styles = StyleSheet.create({
     },
     specifics:{
         backgroundColor: '#005E54',
-        padding: 20,
+        padding: 10,
+        paddingVertical: 20,
         borderRadius: 10,
-        margin: 10
+        marginVertical: 5,
+        width: deviceWidth/2 -25
+        // width: 100
     },
-      alignCenterVertical:{
-        justifyContent: 'center',
-        alignItems: 'center',
-        verticalAlign: 'center'
-      },
       alignCenterRow:{
         flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
       },
       title: {
         fontFamily: 'Poppins-Regular',
