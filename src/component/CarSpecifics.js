@@ -23,7 +23,7 @@ const data = [
     },
 ]
 
-const CardSpecifics = ({item, index})=>{
+const CardSpecifics = ({item})=>{
     const iconName =(item)=>{
       switch (item.key) {
         case 'Transmission':
@@ -39,7 +39,7 @@ const CardSpecifics = ({item, index})=>{
       }
     }
     return(
-      <View key={index} style={[styles.specifics, styles.alignCenterRow]}>
+      <View style={[styles.specifics, styles.alignCenterRow]}>
           {iconName(item)}
           <View style={{marginLeft: 15}}>
             <Text style={styles.specificsText}>{item.key}</Text>
@@ -56,7 +56,7 @@ const CarSpecifics = () => {
         <View  style={styles.row}>
           {data.map((item, index)=>{
             return (
-              <CardSpecifics item={item} index={index}/>
+              <CardSpecifics key={index} item={item}/>
             )
           })}
         </View>

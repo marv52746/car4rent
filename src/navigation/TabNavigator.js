@@ -15,6 +15,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import GameDetailsScreen from '../screens/GameDetailsScreen';
 import SpecsScreen from '../screens/SpecsScreen';
+import DateTimeScreen from '../screens/DateTimeScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator()
@@ -24,9 +25,10 @@ const HomeStack = () => {
       <Stack.Navigator screenOptions={{headerTitleAlign: 'center'}}>
         <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}}/>
         <Stack.Screen name="SpecsScreen" component={SpecsScreen} options={{headerShown: false}}/>
-        <Stack.Screen name="GameDetails" component={GameDetailsScreen} options={({route})=>({
+        <Stack.Screen name="DateTime" component={DateTimeScreen} options={{headerShown: false}}/>
+        {/* <Stack.Screen name="GameDetails" component={GameDetailsScreen} options={({route})=>({
             title: route.params?.title
-        })} />
+        })} /> */}
       </Stack.Navigator>
     )
 }
@@ -62,10 +64,10 @@ const TabNavigator = () => {
 
 const getTabBarVisibility = (route)=>{
     const routeName = getFocusedRouteNameFromRoute(route) ?? 'Home';
-    if(routeName == 'SpecsScreen'){
-        return 'none'
+    if(routeName == 'Home'){
+        return 'flex'
     }
-    return 'flex'
+    return 'none'
 }
 
 export default TabNavigator

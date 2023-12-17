@@ -37,13 +37,11 @@ const styles = StyleSheet.create({
       flexDirection: 'column',
       paddingBottom: 15,
 
-      shadowColor: "#000",
-      shadowOffset: {
-        width: 5,
-        height: 5,
-      },
-      shadowOpacity: 0.6,
-      elevation: 9
+      shadowColor: '#000',
+      shadowOffset: { width: -8, height: 21 },
+      shadowOpacity: 0.59,
+      shadowRadius: 36,
+      elevation: 8,
     },
     carImg:{
       borderTopRightRadius: radius,

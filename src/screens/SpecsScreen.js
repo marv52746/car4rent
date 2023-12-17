@@ -6,7 +6,6 @@ import BackButton from '../component/BackButton'
 import RenterDetails from '../component/RenterDetails'
 import CarSpecifics from '../component/CarSpecifics'
 import BookBtn from '../component/BookBtn'
-import CarInformation from '../component/CarInformation'
 
 const SpecsScreen = ({navigation, route}) => {
   return (
@@ -19,7 +18,7 @@ const SpecsScreen = ({navigation, route}) => {
         />
         {/* Back Button */}
         <View style={styles.backBtnWrap}>
-          <BackButton onPress={()=>navigation.navigate('Home')} />
+          <BackButton onPress={()=>navigation.goBack()} />
         </View>
         
       </View>
@@ -42,7 +41,7 @@ const SpecsScreen = ({navigation, route}) => {
 
       </ScrollView>
 
-      <BookBtn />
+      <BookBtn onPress={()=>navigation.navigate('DateTime')} />
 
     </SafeAreaView>
   )
