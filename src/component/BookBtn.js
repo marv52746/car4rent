@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, Dimensions } from 'react-native'
 import React from 'react'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
-const BookBtn = ({onPress,selectedDates}) => {
+const BookBtn = ({color,title,onPress,selectedDates}) => {
 
     const formatDateString = (inputDateString) => {
         const inputDate = new Date(inputDateString);
@@ -33,13 +33,13 @@ const BookBtn = ({onPress,selectedDates}) => {
                 <Text style={styles.rateStyles}>$1200 /day</Text>
             </View>
             <View>
-                <TouchableOpacity style={styles.bookNowBtn} onPress={onPress}>
+                <TouchableOpacity style={[styles.bookNowBtn, {backgroundColor: color}]} onPress={onPress}>
                 <Text style={{
                     color: '#fff',
                     fontFamily: 'Poppins-Regular',
                     fontSize: 16
                 }}>
-                    Book Now
+                    {title ? title : "Book Now"}
                 </Text>
                 </TouchableOpacity>
             </View>
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     bookNowBtn:{
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#005E54',
+        // backgroundColor: '#005E54',
         paddingVertical: 10,
         borderRadius: 10,
         width : deviceWidth/2 - 20,

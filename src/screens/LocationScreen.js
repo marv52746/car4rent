@@ -1,16 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
+import Maps from '../component/Maps'
 
 const LocationScreen = () => {
+  const [locationNameFromMap, setLocationNameFromMap] = useState(null);
+
   return (
-    <View 
-    style={{
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center'
-    }}
-  >
-      <Text>LocationScreen</Text>
+    <View>
+      <Maps onLocationNameChange={setLocationNameFromMap}/>
     </View>
   )
 }

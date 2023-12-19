@@ -46,7 +46,7 @@ export default function DateTimeScreen({navigation, route}) {
           <ReturnTime />
         </View>
       </View>
-      <BookBtn selectedDates={{selectedStartDate,selectedEndDate}} onPress={()=>navigation.navigate('DateTime')} />
+      <BookBtn color={'#005E54'} selectedDates={{selectedStartDate,selectedEndDate}} onPress={()=>navigation.navigate('Payment')} />
 
     </View>
   )

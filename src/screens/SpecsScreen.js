@@ -6,6 +6,7 @@ import BackButton from '../component/BackButton'
 import RenterDetails from '../component/RenterDetails'
 import CarSpecifics from '../component/CarSpecifics'
 import BookBtn from '../component/BookBtn'
+import {specifications} from '../data/index'
 
 const SpecsScreen = ({navigation, route}) => {
   return (
@@ -37,11 +38,11 @@ const SpecsScreen = ({navigation, route}) => {
         <RenterDetails />
         <View style={styles.horizontalRule} />
 
-        <CarSpecifics />
+        <CarSpecifics data={specifications? specifications : []}/>
 
       </ScrollView>
 
-      <BookBtn onPress={()=>navigation.navigate('DateTime')} />
+      <BookBtn color={'#005E54'} onPress={()=>navigation.navigate('DateTime')} />
 
     </SafeAreaView>
   )

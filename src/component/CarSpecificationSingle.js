@@ -4,6 +4,11 @@ import { FlatList } from 'react-native-gesture-handler'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 
+// const data = {
+//         key : "Transmission",
+//         value : "Automatic"
+//     }
+
 const CardSpecifics = ({item})=>{
     const iconName =(item)=>{
       switch (item.key) {
@@ -30,22 +35,17 @@ const CardSpecifics = ({item})=>{
     )
 }
 
-const CarSpecifics = ({data}) => {
+const CarSpecificationSingle = ({data}) => {
   return (
-    <View style={{marginBottom: 20}}>
-        <Text style={styles.title}>Car Specification</Text>
-        <View  style={styles.row}>
-          {(
-            data.map((item, index)=>(
-              <CardSpecifics key={index} item={item}/>
-            ))
-          )}
-        </View>
+
+    <View style={styles.row}>
+        <CardSpecifics item={data}/>
     </View>
+
   )
 }
 
-export default CarSpecifics
+export default CarSpecificationSingle
 
 const deviceWidth = Math.round(Dimensions.get('window').width)
 const styles = StyleSheet.create({
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
         paddingVertical: 20,
         borderRadius: 10,
         marginVertical: 5,
-        width: deviceWidth/2 -25
+        width: deviceWidth/2 -40
         // width: 100
     },
       alignCenterRow:{
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
       },
       title: {
-        fontFamily: 'Poppins-Regular',
+        fontFamily: 'Poppins-Light',
         fontSize: 18,
       },
 

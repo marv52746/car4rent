@@ -58,5 +58,23 @@ const carLogo = [
       imageUrl : require('../../assets/images/mitsubishi-logo.png'),
     },
 ]
+const specifications = [
+  {
+      key : "Transmission",
+      value : "Automatic"
+  },
+  {
+      key : "Seats",
+      value : "4 Seats"
+  },
+  {
+      key : "Air Condition",
+      value : "Climate Control"
+  },
+  {
+      key : "Fuel Type",
+      value : "Petrol"
+  },
+]
 
-export {cars, carLogo}
+export {cars, carLogo, specifications}
